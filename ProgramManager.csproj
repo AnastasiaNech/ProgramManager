@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>35b8f008-3174-4545-930f-d68e9a4ec35d</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Docker.DotNet" Version="3.125.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CycleInfinitely2">
+      <HintPath>bin\Debug\net6.0\CycleInfinitely2.dll</HintPath>
+    </Reference>
+    <Reference Include="CycleInfinitely3">
+      <HintPath>bin\Debug\net6.0\CycleInfinitely3.dll</HintPath>
+    </Reference>
+    <Reference Include="CycleOfTenIterations1">
+      <HintPath>bin\Debug\net6.0\CycleOfTenIterations1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
