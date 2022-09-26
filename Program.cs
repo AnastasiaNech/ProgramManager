@@ -6,7 +6,8 @@ Object locker = new Object();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var logger = builder.Logging.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
+var logger = builder.Logging.Services.BuildServiceProvider()
+    .GetRequiredService<ILogger<Program>>();
 
 
 var app = builder.Build();
@@ -19,14 +20,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapPost("api/v1/commands", async (string nameLibraby) =>
+app.MapPost("api/v1/cycles", async (string nameLibraby) =>
 {
         if (nameLibraby == null)
         {
             return Results.NotFound();
         }
-
-    logger.LogInformation("Start {0}", nameLibraby);
 
     switch (nameLibraby.Trim())
         {
@@ -43,25 +42,25 @@ app.MapPost("api/v1/commands", async (string nameLibraby) =>
                 return Results.NotFound();
     }
 
+    logger.LogInformation("Start {0}", nameLibraby);
     return Results.Ok();
 });
 
-app.MapDelete("api/v1/commands", async (string nameLibraby) => {
+app.MapDelete("api/v1/cycles", async (string nameLibraby) => {
 
     if (nameLibraby == null)
     {
         return Results.NotFound();
     }
 
-    app.Logger.LogInformation("Stop {0}", nameLibraby);
-
     var thread = treads.FirstOrDefault(x => x.Name == nameLibraby);
-
     if (thread != null)
     {
         thread.Interrupt();
         treads.RemoveAll(x => x.Name == nameLibraby);
     }
+
+    app.Logger.LogInformation("Stop {0}", nameLibraby);
     return Results.Ok();
 });
 app.Run();
