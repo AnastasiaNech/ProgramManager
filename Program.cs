@@ -1,3 +1,5 @@
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 List<Thread> treads = new List<Thread>();
@@ -19,8 +21,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-app.MapPost("api/v1/cycles", async (string nameLibraby) =>
+//Метод подключения библиотеки по названию в отдельном потоке
+app.MapPost("api/v1/cycles", (string nameLibraby) =>
 {
         if (nameLibraby == null)
         {
@@ -29,9 +31,12 @@ app.MapPost("api/v1/cycles", async (string nameLibraby) =>
 
     switch (nameLibraby.Trim())
         {
-            case "CycleOfTenIterations1":
-            treads.Add(CycleOfTenIterations1.CycleOfTenIterations.CycleOfTenIterationsLog(locker));
-                break;
+            case "CycleOfTenIterations1": 
+            Assembly asm = Assembly.LoadFrom("CycleOfTenIterations1.dll");
+            Type? t = asm.GetType("CycleOfTenIterations1.CycleOfTenIterations");
+            MethodInfo? thead = t?.GetMethod ("CycleOfTenIterationsLog", BindingFlags.Public | BindingFlags.Static);
+            treads.Add((Thread)(thead?.Invoke(null, new object[] { locker })));
+                 break;        
             case "CycleInfinitely2":
             treads.Add(CycleInfinitely2.CycleInfinitely.CycleInfinitelyLog(locker));
                 break;
@@ -46,7 +51,8 @@ app.MapPost("api/v1/cycles", async (string nameLibraby) =>
     return Results.Ok();
 });
 
-app.MapDelete("api/v1/cycles", async (string nameLibraby) => {
+//Метод отключения потока по названию библиотеки
+app.MapDelete("api/v1/cycles", (string nameLibraby) => {
 
     if (nameLibraby == null)
     {
@@ -63,5 +69,6 @@ app.MapDelete("api/v1/cycles", async (string nameLibraby) => {
     app.Logger.LogInformation("Stop {0}", nameLibraby);
     return Results.Ok();
 });
+
 app.Run();
 

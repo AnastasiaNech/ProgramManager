@@ -63,3 +63,5 @@ D:\проектики\Innovasystem\ProgramManager\obj\Debug\net6.0\refint\Progra
 D:\проектики\Innovasystem\ProgramManager\obj\Debug\net6.0\ProgramManager.pdb
 D:\проектики\Innovasystem\ProgramManager\obj\Debug\net6.0\ProgramManager.genruntimeconfig.cache
 D:\проектики\Innovasystem\ProgramManager\obj\Debug\net6.0\ref\ProgramManager.dll
+D:\проектики\Innovasystem\ProgramManager\bin\Debug\net6.0\CycleInfinitely2.dll
+D:\проектики\Innovasystem\ProgramManager\bin\Debug\net6.0\CycleInfinitely3.dll

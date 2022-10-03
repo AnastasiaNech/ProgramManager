@@ -28,9 +28,6 @@
     <Reference Include="CycleInfinitely3">
       <HintPath>bin\Debug\net6.0\CycleInfinitely3.dll</HintPath>
     </Reference>
-    <Reference Include="CycleOfTenIterations1">
-      <HintPath>bin\Debug\net6.0\CycleOfTenIterations1.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

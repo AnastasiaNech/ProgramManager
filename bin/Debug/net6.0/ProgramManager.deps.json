@@ -17,8 +17,7 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "CycleInfinitely2": "1.0.0.0",
-          "CycleInfinitely3": "1.0.0.0",
-          "CycleOfTenIterations1": "1.0.0.0"
+          "CycleInfinitely3": "1.0.0.0"
         },
         "runtime": {
           "ProgramManager.dll": {}
@@ -544,14 +543,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "CycleOfTenIterations1/1.0.0.0": {
-        "runtime": {
-          "CycleOfTenIterations1.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -945,11 +936,6 @@
       "sha512": ""
     },
     "CycleInfinitely3/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "CycleOfTenIterations1/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
